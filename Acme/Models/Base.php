@@ -1,17 +1,15 @@
-<?php namespace Acme\Models;
+<?php namespace AffinityCloud\Models;
 
 use Eloquent;
 use Str;
 
 class Base extends Eloquent {
-	
 	// Return an array with camel cased properties
 	public function toArrayCamel()
 	{
 		$array = $this->toArray();
 
-		foreach ($array as $key => $value)
-		{
+		foreach ($array as $key => $value) {
 			$return[Str::camel($key)] = $value;
 		}
 
@@ -29,5 +27,4 @@ class Base extends Eloquent {
 	{
 		return json_encode($this->toArrayCamel());
 	}
-
 }
